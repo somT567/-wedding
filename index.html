@@ -1,13 +1,3 @@
-<div id="introScreen">
-  <div class="intro-content">
-    <h1>Emeka & Chisom</h1>
-    <p>By God’s mercy, two hearts found their way home</p>
-    <button onclick="enterSite()">Enter</button>
-  </div>
-</div>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
 
 <style>
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #2c2c2c;
+  text-align: center;
+  background: linear-gradient(rgba(253,248,247,0.94), rgba(253,248,247,0.94)),
+  url('img1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Intro Screen */
 #introScreen {
   position: fixed;
   width: 100%;
@@ -27,240 +30,21 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  text-align: center;
-  transition: opacity 1.2s ease;
-}
-
-.intro-content h1 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 10px;
-}
-
-.intro-content button {
-  margin-top: 20px;
-}
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #2c2c2c;
-  text-align: center;
-  background: linear-gradient(rgba(253,248,247,0.92), rgba(253,248,247,0.92)),
-  url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e');
-  background-size: cover;
-  background-position: center;
-}
-
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-}
-
-.section {
-  padding: 80px 20px;
-  max-width: 700px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1.2s ease;
-}
-
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero {
-  height: 100vh;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-p {
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-button {
-  background: #e6b7b2;
-  border: none;
-  padding: 14px 28px;
-  color: white;
-  border-radius: 30px;
-  font-size: 16px;
-  margin-top: 15px;
-}
-
-/* Floating soft elements */
-.floating {
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  background: rgba(230,183,178,0.15);
+/* Floral Seal Button */
+.seal-btn {
+  margin-top: 25px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  animation: float 12s infinite ease-in-out;
+  background: #e6b7b2;
+  border: 4px solid #f3d6d2;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  box-shadow: 0 0 25px rgba(230,183,178,0.4);
 }
 
-.floating:nth-child(1) { top: 10%; left: 10%; }
-.floating:nth-child(2) { bottom: 15%; right: 10%; }
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- Background Music -->
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
-</audio>
-
-<div class="floating"></div>
-<div class="floating"></div>
-
-<div class="hero section">
-<h1>Emeka & Chisom</h1>
-<p><i>By God’s mercy, two hearts found their way home.</i></p>
-<p>29th May 2026</p>
-<p>#OneByMercy2026</p>
-</div>
-
-<div class="section">
-<h2>You're Invited</h2>
-<p>
-With grateful hearts and deep joy, we invite you to share in a sacred moment of our lives.<br><br>
-This is more than a celebration—it is a testimony of love, grace, and divine timing.<br><br>
-In the quiet beauty of an intimate gathering, we have chosen you to be part of this memory.
-</p>
-</div>
-
-<div class="section">
-<h2>Event Details</h2>
-<p>
-Civil Ceremony & Intimate Dinner<br><br>
-Friday, 29th May 2026<br>
-4:00 PM<br><br>
-Yasmin Al Sham, Victoria Island, Lagos
-</p>
-</div>
-
-<div class="section">
-<h2>Dress Code</h2>
-<p>
-Comfortable but Chic<br><br>
-Soft pastels. Clean lines. Effortless elegance.
-</p>
-</div>
-
-<div class="section">
-<h2>How Mercy Found Us</h2>
-<p>
-<p>
-
-<strong>Chisom:</strong><br>
-I wasn’t looking for love. Not even close.<br><br>
-
-It started like nothing… just a moment, a conversation I didn’t think would matter.<br>
-And then life happened—I was disappointed, a bit guarded… just trying to move on quietly.<br><br>
-
-But somehow, you stayed.<br><br>
-
-<br>
-
-<strong>Emeka:</strong><br>
-I didn’t plan it either.<br><br>
-
-But there was something about you I couldn’t ignore.<br>
-Even when it would have been easier to walk away, I knew I didn’t want to.<br><br>
-
-So I stayed… not loudly, not perfectly… just intentionally.<br><br>
-
-<br>
-
-<strong>Chisom:</strong><br>
-You showed up in a way I didn’t expect.<br>
-Not just with words—but with presence.<br><br>
-
-That night… when you came all the way just to make me smile…<br>
-it felt simple, but it meant everything.<br><br>
-
-A movie. Quiet laughter. Peace.<br><br>
-
-And somewhere in that moment… I felt safe again.<br><br>
-
-<br>
-
-<strong>Emeka:</strong><br>
-I knew before I said it.<br><br>
-
-But when I finally did—“I love you”—<br>
-it didn’t feel sudden.<br>
-It felt like something that had always been waiting for you.<br><br>
-
-<br>
-
-<strong>Chisom:</strong><br>
-And somehow… I already knew too.<br><br>
-
-<br>
-
-<strong>Together:</strong><br>
-Six months later,<br>
-what started as something unexpected<br>
-became something undeniable.<br><br>
-
-This isn’t just our story.<br><br>
-
-It’s a reminder that love finds you…<br>
-even when you’re not looking.<br><br>
-
-And for us,<br>
-it came wrapped in mercy.
-
-</p>
-</p
-</div>
-
-<div class="section">
-<h2>RSVP</h2>
-<p>Your response is very important to us.</p>
-
-<a href="PASTE-YOUR-GOOGLE-FORM-LINK-HERE">
-<button>RSVP Here</button>
-</a>
-</div>
-
-<div class="section">
-<p>
-Thank you for being part of our story.<br><br>
-<b>Emeka & Chisom</b>
-</p>
-</div>
-
-<script>
-  function enterSite() {
-  document.getElementById("introScreen").style.opacity = "0";
-  setTimeout(() => {
-    document.getElementById("introScreen").style.display = "none";
-  }, 1000);
-
-  document.getElementById("music").play();
-}
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      section.classList.add('show');
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+/* Sections
