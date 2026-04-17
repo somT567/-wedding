@@ -1,3 +1,13 @@
+<div id="introScreen">
+  <div class="intro-content">
+    <h1>Emeka & Chisom</h1>
+    <p>By God’s mercy, two hearts found their way home</p>
+    <button onclick="enterSite()">Enter</button>
+  </div>
+</div>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +18,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
 
 <style>
+#introScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fdf8f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  text-align: center;
+  transition: opacity 1.2s ease;
+}
 
+.intro-content h1 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.intro-content button {
+  margin-top: 20px;
+}
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -129,13 +159,70 @@ Soft pastels. Clean lines. Effortless elegance.
 <div class="section">
 <h2>How Mercy Found Us</h2>
 <p>
-We met in a moment that wasn’t meant for love.<br><br>
-He showed up with kindness, stayed with intention,<br>
-and turned an unexpected moment into something beautiful.<br><br>
-One night, a movie, laughter—and everything changed.<br><br>
-Six months later, here we are.<br><br>
-A love written by mercy.
+<p>
+
+<strong>Chisom:</strong><br>
+I wasn’t looking for love. Not even close.<br><br>
+
+It started like nothing… just a moment, a conversation I didn’t think would matter.<br>
+And then life happened—I was disappointed, a bit guarded… just trying to move on quietly.<br><br>
+
+But somehow, you stayed.<br><br>
+
+<br>
+
+<strong>Emeka:</strong><br>
+I didn’t plan it either.<br><br>
+
+But there was something about you I couldn’t ignore.<br>
+Even when it would have been easier to walk away, I knew I didn’t want to.<br><br>
+
+So I stayed… not loudly, not perfectly… just intentionally.<br><br>
+
+<br>
+
+<strong>Chisom:</strong><br>
+You showed up in a way I didn’t expect.<br>
+Not just with words—but with presence.<br><br>
+
+That night… when you came all the way just to make me smile…<br>
+it felt simple, but it meant everything.<br><br>
+
+A movie. Quiet laughter. Peace.<br><br>
+
+And somewhere in that moment… I felt safe again.<br><br>
+
+<br>
+
+<strong>Emeka:</strong><br>
+I knew before I said it.<br><br>
+
+But when I finally did—“I love you”—<br>
+it didn’t feel sudden.<br>
+It felt like something that had always been waiting for you.<br><br>
+
+<br>
+
+<strong>Chisom:</strong><br>
+And somehow… I already knew too.<br><br>
+
+<br>
+
+<strong>Together:</strong><br>
+Six months later,<br>
+what started as something unexpected<br>
+became something undeniable.<br><br>
+
+This isn’t just our story.<br><br>
+
+It’s a reminder that love finds you…<br>
+even when you’re not looking.<br><br>
+
+And for us,<br>
+it came wrapped in mercy.
+
 </p>
+</p
 </div>
 
 <div class="section">
@@ -155,6 +242,14 @@ Thank you for being part of our story.<br><br>
 </div>
 
 <script>
+  function enterSite() {
+  document.getElementById("introScreen").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("introScreen").style.display = "none";
+  }, 1000);
+
+  document.getElementById("music").play();
+}
 const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
