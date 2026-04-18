@@ -16,10 +16,11 @@ body {
   background: #fdf8f7;
   color: #2c2c2c;
   text-align: center;
+  overflow-x: hidden;
 }
 
-/* OPENING INVITATION */
-#invitation {
+/* ENVELOPE SCREEN */
+#envelope {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -31,43 +32,71 @@ body {
 }
 
 .overlay {
-  background: rgba(0,0,0,0.35);
   position: absolute;
   width: 100%;
   height: 100%;
+  background: rgba(0,0,0,0.4);
 }
 
-.invite-box {
+/* CARD */
+.card {
   position: relative;
-  background: rgba(255,255,255,0.92);
-  padding: 40px;
+  background: #ffffffee;
+  padding: 50px 30px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
+  animation: float 4s ease-in-out infinite;
 }
 
-.open-btn {
-  margin-top: 20px;
-  padding: 14px 30px;
-  border-radius: 30px;
-  background: #e6b7b2;
+/* FLOAT EFFECT */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* SEAL BUTTON */
+.seal {
+  margin-top: 25px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f4d1cc, #e6b7b2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px;
   color: white;
-  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.seal:hover {
+  transform: scale(1.1);
 }
 
 /* HERO */
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(253,248,247,0.85), rgba(253,248,247,0.85)),
+  background: linear-gradient(rgba(253,248,247,0.9), rgba(253,248,247,0.9)),
   url('IMG_2492.jpeg');
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .script {
   font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
+  font-size: 3.2rem;
 }
 
 /* SECTIONS */
@@ -76,8 +105,8 @@ body {
   max-width: 650px;
   margin: auto;
   opacity: 0;
-  transform: translateY(40px);
-  transition: 1.2s;
+  transform: translateY(50px);
+  transition: 1.2s ease;
 }
 
 .section.show {
@@ -94,9 +123,14 @@ p {
   width: 100%;
   border-radius: 14px;
   margin-bottom: 15px;
+  transition: 0.5s;
 }
 
-/* REGISTRY BOX */
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* REGISTRY */
 .registry {
   background: #fff;
   padding: 25px;
@@ -118,14 +152,15 @@ button {
 
 <body>
 
-<!-- INVITATION OPEN -->
-<div id="invitation">
+<!-- ENVELOPE OPENING -->
+<div id="envelope">
 <div class="overlay"></div>
 
-<div class="invite-box">
+<div class="card">
 <h2>This invitation is exclusively for you</h2>
-<p>Tap to open</p>
-<button class="open-btn" onclick="openInvite()">Open</button>
+<p>Tap the seal to open</p>
+
+<div class="seal" onclick="openInvite()">E&C</div>
 </div>
 </div>
 
@@ -141,17 +176,16 @@ button {
 <p>#OneByMercy2026</p>
 </div>
 
-<!-- INVITATION TEXT -->
+<!-- INVITE -->
 <div class="section">
 <h2>You’re Invited</h2>
 <p>
-With grateful hearts and deep joy,  
-we invite you to share in a sacred moment of our lives.  
-This is more than a celebration—it is a testimony of love and divine timing.
+With grateful hearts and deep joy,we invite you to share in a sacred moment of our lives.  
+This is more than a celebration,it is a testimony of love and divine timing.
 </p>
 </div>
 
-<!-- EVENT DETAILS -->
+<!-- DETAILS -->
 <div class="section">
 <h2>Event Details</h2>
 <p>
@@ -167,40 +201,27 @@ Victoria Island, Lagos
 </p>
 </div>
 
-<!-- LOVE STORY -->
+<!-- STORY -->
 <div class="section">
 <h2>How Mercy Found Us</h2>
 
 <p>
 <strong>Chisom:</strong><br>
-I wasn’t looking for love.<br><br>
-
-Not even a little… life had already taught me to move carefully.<br><br>
-
-So when we met, I didn’t think it would mean anything.<br><br>
+I wasn’t looking for love… but somehow, you found me.<br><br>
 
 <strong>Emeka:</strong><br>
-But I knew almost immediately.<br><br>
-
-There was something about you I couldn’t ignore.<br><br>
+And I knew I couldn’t let you go.<br><br>
 
 <strong>Chisom:</strong><br>
-Then life happened… and I got hurt.<br><br>
-
-But somehow… you stayed.<br><br>
+Even when life got hard… you stayed.<br><br>
 
 <strong>Emeka:</strong><br>
-I wasn’t going anywhere.<br><br>
-
-<strong>Chisom:</strong><br>
-And that night… you showed up just to make me smile again.<br><br>
-
-A simple moment—but it meant everything.<br><br>
+Because you were always worth it.<br><br>
 
 <strong>Together:</strong><br>
-What started unexpectedly became something undeniable.<br><br>
+What started quietly… became everything.<br><br>
 
-And now… we choose forever.
+And now, we choose forever.
 </p>
 
 </div>
@@ -218,15 +239,15 @@ And now… we choose forever.
 <p>
 Your presence is the greatest gift to us.<br><br>
 
-However, if you wish to bless us further,  
-we have provided our cash registry below.
+If you wish to bless us,  
+please find our registry below.
 </p>
 
 <div class="registry">
 <p>
-<strong>Account Name:</strong> Chisom Ukeje <br>
-<strong>Bank:</strong> [Access Bank Plc] <br>
-<strong>Account Number:</strong> [0055080775]
+<strong>Account Name:</strong> Ukeje Chisom<br>
+<strong>Bank:</strong> [Access Bank Plc]<br>
+<strong>Account Number:</strong> [0030895480]
 </p>
 </div>
 
@@ -250,7 +271,11 @@ your response is very important to us.
 <script>
 
 function openInvite() {
-document.getElementById("invitation").style.display = "none";
+document.getElementById("envelope").style.opacity = "0";
+setTimeout(() => {
+document.getElementById("envelope").style.display = "none";
+}, 800);
+
 document.getElementById("music").play();
 }
 
