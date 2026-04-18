@@ -25,6 +25,7 @@ body::before {
   z-index: -2;
 }
 
+/* ENVELOPE */
 #envelope {
   position: fixed;
   inset: 0;
@@ -94,6 +95,7 @@ body::before {
   stroke-dashoffset: 0;
 }
 
+/* HERO */
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(245,241,235,0.75), rgba(245,241,235,0.75)),
@@ -102,25 +104,19 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: zoom 14s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-  from { background-size: 100%; }
-  to { background-size: 110%; }
 }
 
 .shine {
   font-family: 'Playfair Display';
   font-style: italic;
   font-size: 3.3rem;
-  position: relative;
 }
 
+/* SECTIONS */
 .section {
-  padding: 100px 20px;
+  padding: 80px 20px; /* reduced spacing */
   max-width: 650px;
-  margin: 40px auto;
+  margin: 30px auto;
   background: rgba(255,255,255,0.65);
   backdrop-filter: blur(6px);
   border-radius: 16px;
@@ -132,15 +128,17 @@ h2 {
 }
 
 p {
-  line-height: 1.9;
+  line-height: 1.8;
 }
 
 .story {
   font-family: 'Cormorant Garamond';
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
+/* IMAGE SECTION */
 .bg-section {
   background-size: cover;
   background-position: center;
@@ -180,6 +178,7 @@ button {
 
 <body>
 
+<!-- ENVELOPE -->
 <div id="envelope">
   <div class="card" id="card">
     <div class="flap"></div>
@@ -196,11 +195,13 @@ button {
   </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <h1 class="shine">Emeka & Chisom</h1>
   <p>29 MAY 2026</p>
 </div>
 
+<!-- INVITE -->
 <div class="section">
   <h2>You’re Invited</h2>
   <p>
@@ -210,6 +211,7 @@ button {
   </p>
 </div>
 
+<!-- DETAILS -->
 <div class="section bg-section" style="background-image:url('IMG_2338.jpeg')">
   <h2>Event Details</h2>
   <p>
@@ -217,7 +219,6 @@ button {
     Friday, 29th May 2026<br>
     4:00 PM<br><br>
     Yasmin Al Sham,<br>
-    1384 Tiamiyu Savage St,<br>
     Victoria Island, Lagos
   </p>
 
@@ -226,57 +227,40 @@ button {
   </a>
 </div>
 
+<!-- STORY -->
 <div class="section">
   <h2>Our Story</h2>
 
   <p class="story">
-
-<strong>Chisom:</strong><br>
-    <div class="section">
-  <h2>Our Story</h2>
-
-  <p style="font-family:'Cormorant Garamond'; font-style:italic;">
-
 We fell in love in a hopeless way…<br><br>
+
 I wasn’t looking for love. Not even close.<br><br>
 
-Life had taught me to be careful… to guard my heart… to move quietly and expect less.<br><br>
+So when we met, it didn’t feel like anything significant.<br><br>
 
-So when we met, it didn’t feel like anything significant. Just another moment, another conversation… nothing I thought would matter.<br><br>
-<br><br>
-<strong>Emeka:</strong><br>
-I didn’t plan it either.<br><br>
+But there was something about us that felt easy… natural… certain.<br><br>
 
-But there was something about you that felt different,something calm, something real.<br><br>
-So I stayed… not perfectly, not loudly… just intentionally.<br><br>
-<br>
-We laugh together—soft, easy, unforced…<br>
-like we had always known each other.<br><br>
+We laugh together—soft, unforced—like we had always known each other.<br><br>
 
 And then… the story begins.<br><br>
 
-What started quietly became something certain,<br>
-something steady… something that feels like home.<br><br>
+What started quietly became something steady… something that feels like home.<br><br>
+
 This isn’t just our story.<br>
-It’s a reminder that love finds you… even when you’re not looking.<br><br>
+It’s a reminder that love finds you—even when you’re not looking.<br><br>
 
-And for us,<br>
-it came wrapped in mercy.
-And now, we choose forever.
-
+And now… we choose forever.
   </p>
 </div>
 
-
-
+<!-- GIFTS -->
 <div class="section">
   <h2>Gifts</h2>
 
   <p>
     Your presence at our wedding means so much to us, and we truly consider it the greatest gift we could receive.<br><br>
 
-    However, if you wish to bless us beyond your presence, we would be deeply grateful.  
-    Your kindness and generosity will go a long way in helping us build our home and begin this new chapter together.
+    However, if you wish to bless us beyond your presence, we would be deeply grateful.
   </p>
 
   <div class="registry">
@@ -286,24 +270,14 @@ And now, we choose forever.
   </div>
 </div>
 
+<!-- RSVP -->
 <div class="section">
-  <h2>RSVP</h2>
-  <p>
-    <div class="section">
   <h2>RSVP</h2>
 
   <p>
     As this is an intimate gathering,  
-    we kindly ask that you confirm your attendance on or before  
-    <strong>16th May 2026</strong>.<br><br>
-
-    We truly look forward to celebrating with you.
-  </p>
-
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
-    <button>Confirm Attendance</button>
-  </a>
-</div>
+    kindly confirm your attendance on or before  
+    <strong>16th May 2026</strong>.
   </p>
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
