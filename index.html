@@ -9,8 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:ital@1&family=Inter:wght@300&display=swap" rel="stylesheet">
 
 <style>
-
-/* BASE */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -18,7 +16,6 @@ body {
   color: #2b2b2b;
 }
 
-/* TEXTURE */
 body::before {
   content: "";
   position: fixed;
@@ -28,7 +25,6 @@ body::before {
   z-index: -2;
 }
 
-/* ENVELOPE */
 #envelope {
   position: fixed;
   inset: 0;
@@ -49,7 +45,6 @@ body::before {
   overflow: hidden;
 }
 
-/* FLAP */
 .flap {
   position: absolute;
   width: 100%;
@@ -64,7 +59,6 @@ body::before {
   transform: rotateX(180deg);
 }
 
-/* MONOGRAM */
 .monogram {
   position: absolute;
   top: 45%;
@@ -75,7 +69,6 @@ body::before {
   color: #7a5c43;
 }
 
-/* WAX SEAL */
 .seal {
   position: absolute;
   bottom: 28px;
@@ -89,7 +82,6 @@ body::before {
   filter: drop-shadow(0 6px 10px rgba(0,0,0,0.2));
 }
 
-/* CRACK */
 .crack {
   stroke: #5a2e2e;
   stroke-width: 2;
@@ -102,7 +94,6 @@ body::before {
   stroke-dashoffset: 0;
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(245,241,235,0.75), rgba(245,241,235,0.75)),
@@ -119,31 +110,13 @@ body::before {
   to { background-size: 110%; }
 }
 
-/* NAME */
 .shine {
   font-family: 'Playfair Display';
   font-style: italic;
   font-size: 3.3rem;
   position: relative;
-  overflow: hidden;
 }
 
-.shine::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-  animation: shine 4s infinite;
-}
-
-@keyframes shine {
-  100% { left: 125%; }
-}
-
-/* SECTION */
 .section {
   padding: 100px 20px;
   max-width: 650px;
@@ -162,7 +135,12 @@ p {
   line-height: 1.9;
 }
 
-/* IMAGE BG SECTION */
+.story {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
 .bg-section {
   background-size: cover;
   background-position: center;
@@ -174,43 +152,34 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.45);
 }
 
 .bg-section * {
   position: relative;
 }
 
-/* GALLERY */
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  margin-top: 20px;
-}
-
-/* REGISTRY */
-.registry {
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 10px;
-  background: white;
-}
-
-/* BUTTON */
 button {
   padding: 14px 28px;
   border: none;
   background: #7a5c43;
   color: white;
   border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
+.registry {
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 10px;
+  background: white;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ENVELOPE -->
 <div id="envelope">
   <div class="card" id="card">
     <div class="flap"></div>
@@ -224,78 +193,139 @@ button {
         <path class="crack" d="M30 30 L70 70"/>
       </svg>
     </div>
-
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <h1 class="shine">Emeka & Chisom</h1>
   <p>29 MAY 2026</p>
 </div>
 
-<!-- INVITE -->
 <div class="section">
   <h2>You’re Invited</h2>
   <p>
     With grateful hearts and deep joy,  
-    we invite you to share in a sacred moment of our lives.
+    we invite you to witness and celebrate a moment that means the world to us.  
+    This day is not just about an event, but about love, growth, and the beginning of a shared forever.
   </p>
 </div>
 
-<!-- DETAILS -->
 <div class="section bg-section" style="background-image:url('IMG_2338.jpeg')">
   <h2>Event Details</h2>
   <p>
     Civil Ceremony & Intimate Dinner<br><br>
     Friday, 29th May 2026<br>
     4:00 PM<br><br>
-    Yasmin Al Sham, Victoria Island, Lagos
+    Yasmin Al Sham,<br>
+    1384 Tiamiyu Savage St,<br>
+    Victoria Island, Lagos
   </p>
+
+  <a href="https://www.google.com/maps/search/?api=1&query=Yasmin+Al+Sham+Victoria+Island+Lagos" target="_blank">
+    <button>Get Directions</button>
+  </a>
 </div>
 
-<!-- STORY -->
 <div class="section">
   <h2>Our Story</h2>
-  <p style="font-family:'Cormorant Garamond'; font-style:italic;">
-    “You felt like peace.”<br>
-    “You felt like home.”<br><br>
-    And now… we choose forever.
+
+  <p class="story">
+
+<strong>Chisom:</strong><br>
+I wasn’t looking for love. Not even close.<br><br>
+
+Life had taught me to be careful… to guard my heart… to move quietly and expect less.<br><br>
+
+So when we met, it didn’t feel like anything significant. Just another moment, another conversation… nothing I thought would matter.<br><br>
+
+But then life happened. I was disappointed, a little broken in ways I didn’t fully admit.<br><br>
+
+And somehow… you stayed.<br><br>
+
+<br>
+
+<strong>Emeka:</strong><br>
+I didn’t plan it either.<br><br>
+
+But there was something about you that felt different—something calm, something real.<br><br>
+
+Even when it would have been easier to walk away, I knew I didn’t want to.<br><br>
+
+So I stayed… not perfectly, not loudly… just intentionally.<br><br>
+
+<br>
+
+<strong>Chisom:</strong><br>
+And then that night… you showed up.<br><br>
+
+Not with grand gestures, but with presence.<br><br>
+
+A movie, quiet laughter, and a kind of peace I didn’t even know I needed.<br><br>
+
+And somewhere in that moment… I softened.<br><br>
+
+<br>
+
+<strong>Emeka:</strong><br>
+I had already fallen.<br><br>
+
+So when I said “I love you”… it didn’t feel sudden.<br>
+It felt like something that had always been waiting to be said.<br><br>
+
+<br>
+
+<strong>Together:</strong><br>
+Six months later,<br>
+what started unexpectedly became something undeniable.<br><br>
+
+This isn’t just our story.<br>
+It’s a reminder that love finds you… even when you’re not looking.<br><br>
+
+And for us,<br>
+it came wrapped in mercy.
+
   </p>
 </div>
 
-<!-- REGISTRY -->
 <div class="section">
   <h2>Gifts</h2>
+
+  <p>
+    Your presence at our wedding means so much to us, and we truly consider it the greatest gift we could receive.<br><br>
+
+    However, if you wish to bless us beyond your presence, we would be deeply grateful.  
+    Your kindness and generosity will go a long way in helping us build our home and begin this new chapter together.
+  </p>
+
   <div class="registry">
-    Ukeje Chisom<br>
-    Access Bank Plc<br>
-    0030895480
+    <strong>Account Name:</strong> Ukeje Chisom<br>
+    <strong>Bank:</strong> Access Bank Plc<br>
+    <strong>Account Number:</strong> 0030895480
   </div>
 </div>
 
-<!-- RSVP -->
 <div class="section">
   <h2>RSVP</h2>
+  <p>
+    As this is an intimate gathering, your response is very important to us.  
+    Kindly confirm your attendance at your earliest convenience.
+  </p>
+
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
     <button>Confirm Attendance</button>
   </a>
 </div>
 
 <script>
-
 function openInvite(){
   document.getElementById("seal").classList.add("open");
-
   setTimeout(()=>{
     document.getElementById("card").classList.add("open");
   },500);
-
   setTimeout(()=>{
     document.getElementById("envelope").style.display = "none";
   },1400);
 }
-
 </script>
 
 </body>
