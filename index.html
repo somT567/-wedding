@@ -13,96 +13,121 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #fdf8f7;
-  color: #2c2c2c;
+  background: #f7f4ef;
+  color: #2b2b2b;
   text-align: center;
   overflow-x: hidden;
 }
 
-/* ENVELOPE SCREEN */
+/* TEXTURE */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #ffffff, #f3efe9);
+  z-index: -2;
+}
+
+/* GRAIN */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+  opacity: 0.25;
+  z-index: -1;
+}
+
+/* FLOATING PARTICLES */
+.particles span {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #d8c3a5;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: float 12s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+
+/* ENVELOPE */
 #envelope {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url('IMG_2492.jpeg') center/cover;
+  background: #f7f4ef;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  transition: 1s ease;
 }
 
-.overlay {
+.card {
+  width: 300px;
+  height: 420px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.flap {
   position: absolute;
   width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
+  height: 55%;
+  background: #f1ece6;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 1s ease;
 }
 
-/* CARD */
-.card {
-  position: relative;
-  background: #ffffffee;
-  padding: 50px 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  animation: float 4s ease-in-out infinite;
+.open .flap {
+  transform: rotateX(180deg);
 }
 
-/* FLOAT EFFECT */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+.monogram {
+  position: absolute;
+  top: 46%;
+  width: 100%;
+  font-family: 'Playfair Display';
+  font-size: 32px;
+  color: #8c6b4f;
 }
 
-/* SEAL BUTTON */
-.seal {
-  margin-top: 25px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #f4d1cc, #e6b7b2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Great Vibes', cursive;
-  font-size: 22px;
-  color: white;
+.tassel {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: #8c6b4f;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: 0.3s;
-}
-
-.seal:hover {
-  transform: scale(1.1);
 }
 
 /* HERO */
 .hero {
-  height: 100vh;
-  background: linear-gradient(rgba(253,248,247,0.9), rgba(253,248,247,0.9)),
-  url('IMG_2492.jpeg');
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  animation: fadeIn 2s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  padding: 140px 20px 80px;
 }
 
 .script {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.2rem;
+  font-family: 'Great Vibes';
+  font-size: 3.3rem;
+  color: #8c6b4f;
 }
 
 /* SECTIONS */
 .section {
-  padding: 100px 20px;
-  max-width: 650px;
+  padding: 70px 20px;
+  max-width: 600px;
   margin: auto;
   opacity: 0;
   transform: translateY(50px);
@@ -112,6 +137,12 @@ body {
 .section.show {
   opacity: 1;
   transform: translateY(0);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.03));
+}
+
+h2 {
+  font-family: 'Playfair Display';
+  font-weight: 400;
 }
 
 p {
@@ -123,28 +154,42 @@ p {
   width: 100%;
   border-radius: 14px;
   margin-bottom: 15px;
-  transition: 0.5s;
+  transition: transform 1.2s ease, opacity 1s ease;
+  opacity: 0;
+  transform: scale(1.05);
 }
 
-.gallery img:hover {
-  transform: scale(1.03);
+.gallery img.show {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* REGISTRY */
 .registry {
-  background: #fff;
+  border: 1px solid #e5dfd7;
   padding: 25px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  background: #fff;
 }
 
 /* BUTTON */
 button {
-  background: #e6b7b2;
+  background: #8c6b4f;
+  color: white;
   border: none;
   padding: 14px 28px;
-  color: white;
-  border-radius: 25px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* MUSIC */
+.music {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 13px;
+  color: #8c6b4f;
+  cursor: pointer;
 }
 
 </style>
@@ -152,141 +197,141 @@ button {
 
 <body>
 
-<!-- ENVELOPE OPENING -->
-<div id="envelope">
-<div class="overlay"></div>
-
-<div class="card">
-<h2>This invitation is exclusively for you</h2>
-<p>Tap the seal to open</p>
-
-<div class="seal" onclick="openInvite()">E&C</div>
-</div>
+<!-- PARTICLES -->
+<div class="particles">
+  <span style="left:10%"></span>
+  <span style="left:30%"></span>
+  <span style="left:50%"></span>
+  <span style="left:70%"></span>
+  <span style="left:90%"></span>
 </div>
 
 <!-- MUSIC -->
-<audio id="music" loop>
-<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+<div class="music" onclick="toggleMusic()">♪</div>
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
+
+<!-- ENVELOPE -->
+<div id="envelope">
+  <div class="card" id="card">
+    <div class="flap"></div>
+    <div class="monogram">E & C</div>
+    <div class="tassel" onclick="openInvite()">Open Invitation</div>
+  </div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
-<h1 class="script">Emeka & Chisom</h1>
-<p>29th May 2026</p>
-<p>#OneByMercy2026</p>
+  <h1 class="script">Emeka & Chisom</h1>
+  <p>29th May 2026</p>
+  <p>#OneByMercy2026</p>
 </div>
 
 <!-- INVITE -->
 <div class="section">
-<h2>You’re Invited</h2>
-<p>
-With grateful hearts and deep joy,we invite you to share in a sacred moment of our lives.  
-This is more than a celebration,it is a testimony of love and divine timing.
-</p>
+  <h2>You’re Invited</h2>
+  <p>
+    With grateful hearts and deep joy,  
+    we invite you to share in a sacred moment of our lives.
+  </p>
 </div>
 
 <!-- DETAILS -->
 <div class="section">
-<h2>Event Details</h2>
-<p>
-Civil Ceremony & Intimate Dinner<br><br>
-
-<strong>Date:</strong> Friday, 29th May 2026<br><br>
-<strong>Time:</strong> 4:00 PM<br><br>
-
-<strong>Venue:</strong><br>
-Yasmin Al Sham<br>
-1384 Tiamiyu Savage St,<br>
-Victoria Island, Lagos
-</p>
+  <h2>Event Details</h2>
+  <p>
+    Civil Ceremony & Intimate Dinner<br><br>
+    Friday, 29th May 2026<br>
+    4:00 PM<br><br>
+    Yasmin Al Sham<br>
+    Victoria Island, Lagos
+  </p>
 </div>
 
 <!-- STORY -->
 <div class="section">
-<h2>How Mercy Found Us</h2>
+  <h2>Our Story</h2>
+  <p>
+    “I wasn’t looking for love…”<br>
+    “Neither was I…”<br><br>
 
-<p>
-<strong>Chisom:</strong><br>
-I wasn’t looking for love… but somehow, you found me.<br><br>
+    But somehow, we found each other.<br><br>
 
-<strong>Emeka:</strong><br>
-And I knew I couldn’t let you go.<br><br>
+    What started as kindness became comfort.<br>
+    What felt simple became everything.<br><br>
 
-<strong>Chisom:</strong><br>
-Even when life got hard… you stayed.<br><br>
+    “You felt like home.”<br>
+    “You felt like peace.”<br><br>
 
-<strong>Emeka:</strong><br>
-Because you were always worth it.<br><br>
-
-<strong>Together:</strong><br>
-What started quietly… became everything.<br><br>
-
-And now, we choose forever.
-</p>
-
+    And now, here we are… choosing forever.
+  </p>
 </div>
 
 <!-- GALLERY -->
 <div class="section gallery">
-<img src="IMG_2492.jpeg">
-<img src="IMG_2338.jpeg">
+  <img src="IMG_2492.jpeg">
+  <img src="IMG_2338.jpeg">
 </div>
 
 <!-- REGISTRY -->
 <div class="section">
-<h2>Gifts</h2>
+  <h2>Gifts</h2>
+  <p>Your presence is our greatest gift.</p>
 
-<p>
-Your presence is the greatest gift to us.<br><br>
-
-If you wish to bless us,  
-please find our registry below.
-</p>
-
-<div class="registry">
-<p>
-<strong>Account Name:</strong> Ukeje Chisom<br>
-<strong>Bank:</strong> [Access Bank Plc]<br>
-<strong>Account Number:</strong> [0030895480]
-</p>
-</div>
-
+  <div class="registry">
+    <p>
+      Ukeje Chisom<br>
+      Access Bank<br>
+      0030895480
+    </p>
+  </div>
 </div>
 
 <!-- RSVP -->
 <div class="section">
-<h2>RSVP</h2>
-
-<p>
-As this is an intimate gathering,  
-your response is very important to us.
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
-<button>RSVP Here</button>
-</a>
-
+  <h2>RSVP</h2>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
+    <button>Confirm Attendance</button>
+  </a>
 </div>
 
 <script>
 
-function openInvite() {
-document.getElementById("envelope").style.opacity = "0";
-setTimeout(() => {
-document.getElementById("envelope").style.display = "none";
-}, 800);
+function openInvite(){
+  document.getElementById("card").classList.add("open");
+  setTimeout(()=>{
+    document.getElementById("envelope").style.opacity = "0";
+  },800);
+  setTimeout(()=>{
+    document.getElementById("envelope").style.display = "none";
+  },1500);
+}
 
-document.getElementById("music").play();
+function toggleMusic(){
+  let music = document.getElementById("bgMusic");
+  if(music.paused){
+    music.play();
+  } else {
+    music.pause();
+  }
 }
 
 const sections = document.querySelectorAll('.section');
+const images = document.querySelectorAll('.gallery img');
 
 window.addEventListener('scroll', () => {
-sections.forEach(section => {
-if(section.getBoundingClientRect().top < window.innerHeight - 100){
-section.classList.add('show');
-}
-});
+  sections.forEach(section => {
+    if(section.getBoundingClientRect().top < window.innerHeight - 100){
+      section.classList.add('show');
+    }
+  });
+
+  images.forEach(img => {
+    if(img.getBoundingClientRect().top < window.innerHeight - 50){
+      img.classList.add('show');
+    }
+  });
 });
 
 </script>
