@@ -6,190 +6,203 @@
 
 <title>Emeka & Chisom</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:ital@1&family=Inter:wght@300&display=swap" rel="stylesheet">
 
 <style>
 
+/* BASE */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #f7f4ef;
+  background: #f5f1eb;
   color: #2b2b2b;
-  text-align: center;
-  overflow-x: hidden;
 }
 
 /* TEXTURE */
 body::before {
   content: "";
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top, #ffffff, #f3efe9);
-  z-index: -2;
-}
-
-/* GRAIN */
-body::after {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-  opacity: 0.25;
-  z-index: -1;
-}
-
-/* FLOATING PARTICLES */
-.particles span {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: #d8c3a5;
-  border-radius: 50%;
-  opacity: 0.2;
-  animation: float 12s linear infinite;
-}
-
-@keyframes float {
-  0% {transform: translateY(100vh);}
-  100% {transform: translateY(-10vh);}
+  opacity: 0.4;
+  z-index: -2;
 }
 
 /* ENVELOPE */
 #envelope {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #f7f4ef;
+  inset: 0;
+  background: #f5f1eb;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 9999;
-  transition: 1s ease;
+  align-items: center;
+  z-index: 999;
 }
 
 .card {
-  width: 300px;
-  height: 420px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.08);
+  width: 280px;
+  height: 400px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 50px 120px rgba(0,0,0,0.1);
   position: relative;
   overflow: hidden;
-  perspective: 1000px;
 }
 
+/* FLAP */
 .flap {
   position: absolute;
   width: 100%;
   height: 55%;
-  background: #f1ece6;
+  background: #ede7df;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top;
-  transition: transform 1s ease;
+  transition: 1s ease;
 }
 
 .open .flap {
   transform: rotateX(180deg);
 }
 
+/* MONOGRAM */
 .monogram {
   position: absolute;
-  top: 46%;
+  top: 45%;
   width: 100%;
-  font-family: 'Playfair Display';
-  font-size: 32px;
-  color: #8c6b4f;
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-size: 30px;
+  color: #7a5c43;
 }
 
-.tassel {
+/* WAX SEAL */
+.seal {
   position: absolute;
-  bottom: 35px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 13px;
-  color: #8c6b4f;
   cursor: pointer;
+}
+
+.seal svg {
+  width: 80px;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.2));
+}
+
+/* CRACK */
+.crack {
+  stroke: #5a2e2e;
+  stroke-width: 2;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: 0.8s ease;
+}
+
+.seal.open .crack {
+  stroke-dashoffset: 0;
 }
 
 /* HERO */
 .hero {
-  padding: 140px 20px 80px;
+  height: 100vh;
+  background: linear-gradient(rgba(245,241,235,0.75), rgba(245,241,235,0.75)),
+              url('IMG_2492.jpeg') center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: zoom 14s ease-in-out infinite alternate;
 }
 
-.script {
-  font-family: 'Great Vibes';
+@keyframes zoom {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+
+/* NAME */
+.shine {
+  font-family: 'Playfair Display';
+  font-style: italic;
   font-size: 3.3rem;
-  color: #8c6b4f;
+  position: relative;
+  overflow: hidden;
 }
 
-/* SECTIONS */
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  100% { left: 125%; }
+}
+
+/* SECTION */
 .section {
-  padding: 70px 20px;
-  max-width: 600px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 1.2s ease;
-}
-
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.03));
+  padding: 100px 20px;
+  max-width: 650px;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
 }
 
 h2 {
-  font-family: 'Playfair Display';
-  font-weight: 400;
+  font-family: 'Cormorant Garamond';
+  font-size: 2.2rem;
 }
 
 p {
   line-height: 1.9;
 }
 
+/* IMAGE BG SECTION */
+.bg-section {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.bg-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.bg-section * {
+  position: relative;
+}
+
 /* GALLERY */
 .gallery img {
   width: 100%;
-  border-radius: 14px;
-  margin-bottom: 15px;
-  transition: transform 1.2s ease, opacity 1s ease;
-  opacity: 0;
-  transform: scale(1.05);
-}
-
-.gallery img.show {
-  opacity: 1;
-  transform: scale(1);
+  border-radius: 12px;
+  margin-top: 20px;
 }
 
 /* REGISTRY */
 .registry {
-  border: 1px solid #e5dfd7;
-  padding: 25px;
-  border-radius: 14px;
-  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
 }
 
 /* BUTTON */
 button {
-  background: #8c6b4f;
-  color: white;
-  border: none;
   padding: 14px 28px;
+  border: none;
+  background: #7a5c43;
+  color: white;
   border-radius: 30px;
-  cursor: pointer;
-}
-
-/* MUSIC */
-.music {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 13px;
-  color: #8c6b4f;
-  cursor: pointer;
 }
 
 </style>
@@ -197,35 +210,28 @@ button {
 
 <body>
 
-<!-- PARTICLES -->
-<div class="particles">
-  <span style="left:10%"></span>
-  <span style="left:30%"></span>
-  <span style="left:50%"></span>
-  <span style="left:70%"></span>
-  <span style="left:90%"></span>
-</div>
-
-<!-- MUSIC -->
-<div class="music" onclick="toggleMusic()">♪</div>
-<audio id="bgMusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
-</audio>
-
 <!-- ENVELOPE -->
 <div id="envelope">
   <div class="card" id="card">
     <div class="flap"></div>
     <div class="monogram">E & C</div>
-    <div class="tassel" onclick="openInvite()">Open Invitation</div>
+
+    <div class="seal" id="seal" onclick="openInvite()">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" fill="#8c3b3b"/>
+        <circle cx="50" cy="50" r="38" fill="#7a2f2f"/>
+        <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="20" font-family="Cormorant Garamond">E&C</text>
+        <path class="crack" d="M30 30 L70 70"/>
+      </svg>
+    </div>
+
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1 class="script">Emeka & Chisom</h1>
-  <p>29th May 2026</p>
-  <p>#OneByMercy2026</p>
+  <h1 class="shine">Emeka & Chisom</h1>
+  <p>29 MAY 2026</p>
 </div>
 
 <!-- INVITE -->
@@ -238,53 +244,33 @@ button {
 </div>
 
 <!-- DETAILS -->
-<div class="section">
+<div class="section bg-section" style="background-image:url('IMG_2338.jpeg')">
   <h2>Event Details</h2>
   <p>
     Civil Ceremony & Intimate Dinner<br><br>
     Friday, 29th May 2026<br>
     4:00 PM<br><br>
-    Yasmin Al Sham<br>
-    Victoria Island, Lagos
+    Yasmin Al Sham, Victoria Island, Lagos
   </p>
 </div>
 
 <!-- STORY -->
 <div class="section">
   <h2>Our Story</h2>
-  <p>
-    “I wasn’t looking for love…”<br>
-    “Neither was I…”<br><br>
-
-    But somehow, we found each other.<br><br>
-
-    What started as kindness became comfort.<br>
-    What felt simple became everything.<br><br>
-
-    “You felt like home.”<br>
-    “You felt like peace.”<br><br>
-
-    And now, here we are… choosing forever.
+  <p style="font-family:'Cormorant Garamond'; font-style:italic;">
+    “You felt like peace.”<br>
+    “You felt like home.”<br><br>
+    And now… we choose forever.
   </p>
-</div>
-
-<!-- GALLERY -->
-<div class="section gallery">
-  <img src="IMG_2492.jpeg">
-  <img src="IMG_2338.jpeg">
 </div>
 
 <!-- REGISTRY -->
 <div class="section">
   <h2>Gifts</h2>
-  <p>Your presence is our greatest gift.</p>
-
   <div class="registry">
-    <p>
-      Ukeje Chisom<br>
-      Access Bank<br>
-      0030895480
-    </p>
+    Ukeje Chisom<br>
+    Access Bank Plc<br>
+    0030895480
   </div>
 </div>
 
@@ -299,40 +285,16 @@ button {
 <script>
 
 function openInvite(){
-  document.getElementById("card").classList.add("open");
+  document.getElementById("seal").classList.add("open");
+
   setTimeout(()=>{
-    document.getElementById("envelope").style.opacity = "0";
-  },800);
+    document.getElementById("card").classList.add("open");
+  },500);
+
   setTimeout(()=>{
     document.getElementById("envelope").style.display = "none";
-  },1500);
+  },1400);
 }
-
-function toggleMusic(){
-  let music = document.getElementById("bgMusic");
-  if(music.paused){
-    music.play();
-  } else {
-    music.pause();
-  }
-}
-
-const sections = document.querySelectorAll('.section');
-const images = document.querySelectorAll('.gallery img');
-
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    if(section.getBoundingClientRect().top < window.innerHeight - 100){
-      section.classList.add('show');
-    }
-  });
-
-  images.forEach(img => {
-    if(img.getBoundingClientRect().top < window.innerHeight - 50){
-      img.classList.add('show');
-    }
-  });
-});
 
 </script>
 
