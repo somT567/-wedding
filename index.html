@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Emeka & Chisom</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,30 +18,40 @@ body {
   text-align: center;
 }
 
-/* INTRO */
-#introScreen {
+/* OPENING INVITATION */
+#invitation {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #fdf8f7;
+  background: url('IMG_2492.jpeg') center/cover;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   z-index: 9999;
-  transition: opacity 1.2s ease;
 }
 
-.seal-btn {
-  margin-top: 30px;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+.overlay {
+  background: rgba(0,0,0,0.35);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.invite-box {
+  position: relative;
+  background: rgba(255,255,255,0.92);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.open-btn {
+  margin-top: 20px;
+  padding: 14px 30px;
+  border-radius: 30px;
   background: #e6b7b2;
-  border: 4px solid #f3d6d2;
   color: white;
-  font-family: 'Playfair Display', serif;
-  box-shadow: 0 0 30px rgba(230,183,178,0.4);
+  border: none;
 }
 
 /* HERO */
@@ -49,51 +60,24 @@ body {
   background: linear-gradient(rgba(253,248,247,0.85), rgba(253,248,247,0.85)),
   url('IMG_2492.jpeg');
   background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: heroZoom 6s ease forwards;
 }
 
-@keyframes heroZoom {
-  0% { opacity: 0; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-/* HANDWRITTEN NAMES */
-.script-names {
+.script {
   font-family: 'Great Vibes', cursive;
-  font-size: 3.2rem;
-  opacity: 0;
-  animation: fadeText 2.5s ease forwards;
+  font-size: 3rem;
 }
 
-/* TEXT REVEAL */
-@keyframes fadeText {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(6px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-}
-
+/* SECTIONS */
 .section {
-  padding: 110px 25px;
+  padding: 100px 20px;
   max-width: 650px;
   margin: auto;
   opacity: 0;
   transform: translateY(40px);
-  transition: all 1.4s ease;
+  transition: 1.2s;
 }
 
 .section.show {
@@ -105,33 +89,19 @@ p {
   line-height: 1.9;
 }
 
-/* FEATURE IMAGE */
-.feature-img {
-  width: 100%;
-  border-radius: 20px;
-  transform: scale(0.95);
-  transition: transform 1.2s ease;
-}
-
-.feature-img:hover {
-  transform: scale(1);
-}
-
 /* GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
 .gallery img {
   width: 100%;
   border-radius: 14px;
-  transition: transform 1.2s ease;
+  margin-bottom: 15px;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+/* REGISTRY BOX */
+.registry {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 /* BUTTON */
@@ -140,30 +110,7 @@ button {
   border: none;
   padding: 14px 28px;
   color: white;
-  border-radius: 30px;
-  margin-top: 20px;
-  box-shadow: 0 0 15px rgba(230,183,178,0.4);
-  transition: transform 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* PETALS */
-.petals::before, .petals::after {
-  content: "❀ ❀ ❀";
-  position: fixed;
-  font-size: 18px;
-  opacity: 0.12;
-  animation: floatPetals 20s linear infinite;
-}
-
-.petals::before { left: 10%; top: 100%; }
-.petals::after { right: 10%; top: 100%; }
-
-@keyframes floatPetals {
-  100% { transform: translateY(-120vh); }
+  border-radius: 25px;
 }
 
 </style>
@@ -171,72 +118,116 @@ button:hover {
 
 <body>
 
-<!-- INTRO -->
-<div id="introScreen">
-  <h1 class="script-names">Emeka & Chisom</h1>
-  <p>By God’s mercy, two hearts found their way home</p>
-  <button class="seal-btn" onclick="enterSite()">Enter</button>
+<!-- INVITATION OPEN -->
+<div id="invitation">
+<div class="overlay"></div>
+
+<div class="invite-box">
+<h2>This invitation is exclusively for you</h2>
+<p>Tap to open</p>
+<button class="open-btn" onclick="openInvite()">Open</button>
+</div>
 </div>
 
 <!-- MUSIC -->
 <audio id="music" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
 </audio>
-
-<div class="petals"></div>
 
 <!-- HERO -->
 <div class="hero">
-<h1 class="script-names">Emeka & Chisom</h1>
-<h3 id="guestName"></h3>
+<h1 class="script">Emeka & Chisom</h1>
 <p>29th May 2026</p>
 <p>#OneByMercy2026</p>
 </div>
 
-<!-- FEATURE -->
+<!-- INVITATION TEXT -->
 <div class="section">
-<img src="425ce863-57bb-4664-a4aab10881f3.jpeg" class="feature-img">
-</div>
-
-<!-- INVITE -->
-<div class="section">
-<h2>You're Invited</h2>
+<h2>You’re Invited</h2>
 <p>
 With grateful hearts and deep joy,  
 we invite you to share in a sacred moment of our lives.  
-This is a celebration of love, grace, and divine timing.
+This is more than a celebration—it is a testimony of love and divine timing.
 </p>
 </div>
 
-<!-- STORY -->
+<!-- EVENT DETAILS -->
+<div class="section">
+<h2>Event Details</h2>
+<p>
+Civil Ceremony & Intimate Dinner<br><br>
+
+<strong>Date:</strong> Friday, 29th May 2026<br><br>
+<strong>Time:</strong> 4:00 PM<br><br>
+
+<strong>Venue:</strong><br>
+Yasmin Al Sham<br>
+1384 Tiamiyu Savage St,<br>
+Victoria Island, Lagos
+</p>
+</div>
+
+<!-- LOVE STORY -->
 <div class="section">
 <h2>How Mercy Found Us</h2>
 
 <p>
 <strong>Chisom:</strong><br>
-I wasn’t looking for love… but somehow, you found me.<br><br>
+I wasn’t looking for love.<br><br>
+
+Not even a little… life had already taught me to move carefully.<br><br>
+
+So when we met, I didn’t think it would mean anything.<br><br>
 
 <strong>Emeka:</strong><br>
-And I knew I couldn’t walk away.<br><br>
+But I knew almost immediately.<br><br>
+
+There was something about you I couldn’t ignore.<br><br>
 
 <strong>Chisom:</strong><br>
-You stayed… and that changed everything.<br><br>
+Then life happened… and I got hurt.<br><br>
+
+But somehow… you stayed.<br><br>
+
+<strong>Emeka:</strong><br>
+I wasn’t going anywhere.<br><br>
+
+<strong>Chisom:</strong><br>
+And that night… you showed up just to make me smile again.<br><br>
+
+A simple moment—but it meant everything.<br><br>
 
 <strong>Together:</strong><br>
-Now we choose each other… forever.
+What started unexpectedly became something undeniable.<br><br>
+
+And now… we choose forever.
 </p>
 
 </div>
 
 <!-- GALLERY -->
-<div class="section">
-<h2>Moments</h2>
-
-<div class="gallery">
-<img src="IMG_2338.jpeg">
-<img src="F9015E2C-3321-4EFD-9CB0-40BCEB1.jpeg">
+<div class="section gallery">
 <img src="IMG_2492.jpeg">
-<img src="425ce863-57bb-4664-a4aab10881f3.jpeg">
+<img src="IMG_2338.jpeg">
+</div>
+
+<!-- REGISTRY -->
+<div class="section">
+<h2>Gifts</h2>
+
+<p>
+Your presence is the greatest gift to us.<br><br>
+
+However, if you wish to bless us further,  
+we have provided our cash registry below.
+</p>
+
+<div class="registry">
+<p>
+<strong>Account Name:</strong> Chisom Ukeje <br>
+<strong>Bank:</strong> [Access Bank Plc] <br>
+<strong>Account Number:</strong> [0055080775]
+</p>
 </div>
 
 </div>
@@ -244,44 +235,34 @@ Now we choose each other… forever.
 <!-- RSVP -->
 <div class="section">
 <h2>RSVP</h2>
+
+<p>
+As this is an intimate gathering,  
+your response is very important to us.
+</p>
+
 <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
 <button>RSVP Here</button>
 </a>
-</div>
 
-<!-- FOOTER -->
-<div class="section">
-<p>With love,<br><b>Emeka & Chisom</b></p>
 </div>
 
 <script>
 
-function enterSite() {
-  document.getElementById("introScreen").style.opacity = "0";
-  setTimeout(() => {
-    document.getElementById("introScreen").style.display = "none";
-  }, 1000);
-  document.getElementById("music").play();
+function openInvite() {
+document.getElementById("invitation").style.display = "none";
+document.getElementById("music").play();
 }
 
-// Scroll animation
 const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    if (section.getBoundingClientRect().top < window.innerHeight - 100) {
-      section.classList.add('show');
-    }
-  });
-});
-
-// Guest name
-const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-
-if(name){
-  document.getElementById("guestName").innerText = "Dear " + name + ",";
+sections.forEach(section => {
+if(section.getBoundingClientRect().top < window.innerHeight - 100){
+section.classList.add('show');
 }
+});
+});
 
 </script>
 
