@@ -25,6 +25,7 @@ body::before {
   z-index: -2;
 }
 
+/* ENVELOPE */
 #envelope {
   position: fixed;
   inset: 0;
@@ -79,6 +80,7 @@ body::before {
 
 .seal svg {
   width: 80px;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.2));
 }
 
 .crack {
@@ -93,6 +95,7 @@ body::before {
   stroke-dashoffset: 0;
 }
 
+/* HERO */
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(245,241,235,0.75), rgba(245,241,235,0.75)),
@@ -109,6 +112,7 @@ body::before {
   font-size: 3.3rem;
 }
 
+/* SECTIONS */
 .section {
   padding: 80px 20px;
   max-width: 650px;
@@ -131,8 +135,10 @@ p {
   font-family: 'Cormorant Garamond';
   font-style: italic;
   font-size: 1.1rem;
+  line-height: 1.7;
 }
 
+/* IMAGE SECTION */
 .bg-section {
   background-size: cover;
   background-position: center;
@@ -172,6 +178,7 @@ button {
 
 <body>
 
+<!-- ENVELOPE -->
 <div id="envelope">
   <div class="card" id="card">
     <div class="flap"></div>
@@ -181,26 +188,30 @@ button {
       <svg viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="42" fill="#8c3b3b"/>
         <circle cx="50" cy="50" r="38" fill="#7a2f2f"/>
-        <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="20">E&C</text>
+        <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="20" font-family="Cormorant Garamond">E&C</text>
         <path class="crack" d="M30 30 L70 70"/>
       </svg>
     </div>
   </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <h1 class="shine">Emeka & Chisom</h1>
   <p>21 MAY 2026</p>
 </div>
 
+<!-- INVITE -->
 <div class="section">
   <h2>You’re Invited</h2>
   <p>
     With grateful hearts and deep joy,  
-    we invite you to witness and celebrate a moment that means the world to us.
+    we invite you to witness and celebrate a moment that means the world to us.  
+    This day is not just about an event, but about love and the beginning of a shared forever.
   </p>
 </div>
 
+<!-- DETAILS -->
 <div class="section bg-section" style="background-image:url('IMG_2338.jpeg')">
   <h2>Event Details</h2>
   <p>
@@ -216,15 +227,17 @@ button {
   </a>
 </div>
 
+<!-- STORY -->
 <div class="section">
   <h2>Our Story</h2>
   <p class="story">
-    We fell in love in a hopeless way…<br><br>
+
+We fell in love in a hopeless way…<br><br>
 
 “My own,” as I fondly call her, wasn’t looking for love, and neither was I.<br><br>
 
 But somehow, in the quiet and most unexpected way,  
-we found each other… and we stayed.<br><br>
+we found each other and we stayed.<br><br>
 
 There was something about us that felt easy,  
 natural, certain.<br><br>
@@ -234,46 +247,68 @@ like joy had always known our names.<br><br>
 
 And in the middle of it all,  
 we found ourselves growing,  
-and still growing, together in our love for Christ—  
+and still growing, together in our love for Christ,  
 a love that has kept us, and is still keeping us in love.<br><br>
 
 What we have is not loud or hurried,  
-but steady, intentional, and full of grace…  
+but steady, intentional, and full of grace,  
 a quiet reminder of mercy.<br><br>
 
 And then… the story begins.<br><br>
 
 And now, with full hearts and quiet certainty,  
 we choose forever.
+
   </p>
 </div>
 
+<!-- DRESS CODE -->
 <div class="section">
   <h2>Dress Code</h2>
-  <p>Comfortable but chic.</p>
+  <p>
+    Comfortable but chic.<br><br>
+    Think soft elegance, effortless style, and refined simplicity.
+  </p>
 </div>
 
+<!-- GIFTS -->
 <div class="section">
   <h2>Gifts</h2>
-  <p>Your presence means so much to us.</p>
+  <p>
+    Your presence means so much to us and is truly the greatest gift.<br><br>
+    However, if you wish to bless us further, we would be deeply grateful.
+  </p>
 
   <div class="registry">
-    Ukeje Chisom<br>
-    Access Bank Plc<br>
-    0030895480
+    <strong>Account Name:</strong> Ukeje Chisom<br>
+    <strong>Bank:</strong> Access Bank Plc<br>
+    <strong>Account Number:</strong> 0030895480
   </div>
 </div>
 
+<!-- RSVP -->
 <div class="section">
   <h2>RSVP</h2>
   <p>
-    Kindly confirm your attendance before  
+    Kindly confirm your attendance on or before  
     <strong>16th May 2026</strong>.
   </p>
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
     <button>Confirm Attendance</button>
   </a>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center; padding:60px 20px 40px; font-family:'Cormorant Garamond'; font-style:italic; color:#7a5c43;">
+  <p style="font-size:18px; margin-bottom:10px;">
+    With love,<br>
+    Emeka & Chisom
+  </p>
+
+  <p style="font-size:12px; opacity:0.6;">
+    #OneByMercy2026
+  </p>
 </div>
 
 <script>
