@@ -6,321 +6,405 @@
 
 <title>Emeka & Chisom</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:ital@1&family=Inter:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:ital@1&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f5f1eb;
-  color: #2b2b2b;
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:#f5f1eb;
+color:#2b2b2b;
+overflow-x:hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-  opacity: 0.4;
-  z-index: -2;
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:url('https://www.transparenttextures.com/patterns/cream-paper.png');
+opacity:.35;
+z-index:-2;
 }
 
-/* ENVELOPE */
-#envelope {
-  position: fixed;
-  inset: 0;
-  background: #f5f1eb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+/* Envelope */
+#envelope{
+position:fixed;
+inset:0;
+background:#f5f1eb;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
 }
 
-.card {
-  width: 280px;
-  height: 400px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 50px 120px rgba(0,0,0,0.1);
-  position: relative;
-  overflow: hidden;
+.card{
+width:280px;
+height:400px;
+background:#fff;
+border-radius:16px;
+box-shadow:0 50px 120px rgba(0,0,0,.1);
+position:relative;
+overflow:hidden;
 }
 
-.flap {
-  position: absolute;
-  width: 100%;
-  height: 55%;
-  background: #ede7df;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top;
-  transition: 1s ease;
+.flap{
+position:absolute;
+width:100%;
+height:55%;
+background:#ede7df;
+clip-path:polygon(0 0,100% 0,50% 100%);
+transform-origin:top;
+transition:1s ease;
 }
 
-.open .flap {
-  transform: rotateX(180deg);
+.open .flap{
+transform:rotateX(180deg);
 }
 
-.monogram {
-  position: absolute;
-  top: 45%;
-  width: 100%;
-  text-align: center;
-  font-family: 'Cormorant Garamond';
-  font-size: 30px;
-  color: #7a5c43;
+.monogram{
+position:absolute;
+top:45%;
+width:100%;
+text-align:center;
+font-family:'Cormorant Garamond';
+font-size:30px;
+color:#7a5c43;
 }
 
-.seal {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
+.seal{
+position:absolute;
+bottom:28px;
+left:50%;
+transform:translateX(-50%);
+cursor:pointer;
 }
 
-.seal svg {
-  width: 80px;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.2));
+.seal svg{
+width:80px;
+filter:drop-shadow(0 6px 10px rgba(0,0,0,.2));
 }
 
-.crack {
-  stroke: #5a2e2e;
-  stroke-width: 2;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: 0.8s ease;
+.crack{
+stroke:#5a2e2e;
+stroke-width:2;
+stroke-dasharray:100;
+stroke-dashoffset:100;
+transition:.8s ease;
 }
 
-.seal.open .crack {
-  stroke-dashoffset: 0;
+.seal.open .crack{
+stroke-dashoffset:0;
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  background: linear-gradient(rgba(245,241,235,0.75), rgba(245,241,235,0.75)),
-              url('IMG_2492.jpeg') center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* Hero */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(245,241,235,.74),rgba(245,241,235,.74)),
+url('IMG_2492.jpeg') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
 }
 
-.shine {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-size: 3.3rem;
+.shine{
+font-family:'Playfair Display';
+font-style:italic;
+font-size:3.3rem;
+margin-bottom:10px;
 }
 
-/* SECTIONS */
-.section {
-  padding: 80px 20px;
-  max-width: 650px;
-  margin: 30px auto;
-  background: rgba(255,255,255,0.65);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
+/* Sections */
+.section{
+padding:80px 20px;
+max-width:650px;
+margin:30px auto;
+background:rgba(255,255,255,.66);
+backdrop-filter:blur(6px);
+border-radius:16px;
 }
 
-h2 {
-  font-family: 'Cormorant Garamond';
-  font-size: 2.2rem;
+h2{
+font-family:'Cormorant Garamond';
+font-size:2.2rem;
+margin-top:0;
 }
 
-p {
-  line-height: 1.8;
+p{
+line-height:1.8;
 }
 
-.story {
-  font-family: 'Cormorant Garamond';
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.7;
+.story{
+font-family:'Cormorant Garamond';
+font-style:italic;
+font-size:1.15rem;
+line-height:1.75;
 }
 
-/* IMAGE SECTION */
-.bg-section {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  position: relative;
+.bg-section{
+background-size:cover;
+background-position:center;
+color:#fff;
+position:relative;
 }
 
-.bg-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
+.bg-section::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
 }
 
-.bg-section * {
-  position: relative;
+.bg-section *{
+position:relative;
 }
 
-button {
-  padding: 14px 28px;
-  border: none;
-  background: #7a5c43;
-  color: white;
-  border-radius: 30px;
-  cursor: pointer;
-  margin-top: 20px;
+button{
+padding:14px 28px;
+border:none;
+background:#7a5c43;
+color:#fff;
+border-radius:30px;
+cursor:pointer;
+margin-top:20px;
+font-size:15px;
 }
 
-.registry {
-  border: 1px solid #ddd;
-  padding: 25px;
-  border-radius: 10px;
-  background: white;
+.registry{
+border:1px solid #ddd;
+padding:25px;
+border-radius:10px;
+background:#fff;
+}
+
+.countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:25px;
+}
+
+.timebox{
+background:#fff;
+padding:18px 10px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.timebox span{
+display:block;
+font-size:1.7rem;
+font-weight:600;
+color:#7a5c43;
+}
+
+.timebox small{
+font-size:12px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.footer{
+text-align:center;
+padding:60px 20px 40px;
+font-family:'Cormorant Garamond';
+font-style:italic;
+color:#7a5c43;
+}
+
+.credit{
+font-size:13px;
+margin-top:18px;
+opacity:.8;
+font-style:normal;
+}
+
+@media(max-width:600px){
+.countdown{
+grid-template-columns:repeat(2,1fr);
+}
+.shine{
+font-size:2.6rem;
+}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ENVELOPE -->
+<!-- Envelope -->
 <div id="envelope">
-  <div class="card" id="card">
-    <div class="flap"></div>
-    <div class="monogram">E & C</div>
+<div class="card" id="card">
+<div class="flap"></div>
+<div class="monogram">E & C</div>
 
-    <div class="seal" id="seal" onclick="openInvite()">
-      <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="42" fill="#8c3b3b"/>
-        <circle cx="50" cy="50" r="38" fill="#7a2f2f"/>
-        <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="20" font-family="Cormorant Garamond">E&C</text>
-        <path class="crack" d="M30 30 L70 70"/>
-      </svg>
-    </div>
-  </div>
+<div class="seal" id="seal" onclick="openInvite()">
+<svg viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="42" fill="#8c3b3b"/>
+<circle cx="50" cy="50" r="38" fill="#7a2f2f"/>
+<text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="20" font-family="Cormorant Garamond">E&C</text>
+<path class="crack" d="M30 30 L70 70"/>
+</svg>
+</div>
+</div>
 </div>
 
-<!-- HERO -->
+<!-- Hero -->
 <div class="hero">
-  <h1 class="shine">Emeka & Chisom</h1>
-  <p>21 MAY 2026</p>
+<h1 class="shine">Emeka & Chisom</h1>
+<p>21 MAY 2026</p>
+<p>4:00 PM – 7:00 PM</p>
+<p>#OneByMercy2026</p>
 </div>
 
-<!-- INVITE -->
+<!-- Countdown -->
 <div class="section">
-  <h2>You’re Invited</h2>
-  <p>
-    With grateful hearts and deep joy,  
-    we invite you to witness and celebrate a moment that means the world to us.  
-    This day is not just about an event, but about love and the beginning of a shared forever.
-  </p>
+<h2>Countdown</h2>
+<p>Counting down to our forever.</p>
+
+<div class="countdown">
+<div class="timebox"><span id="days">0</span><small>Days</small></div>
+<div class="timebox"><span id="hours">0</span><small>Hours</small></div>
+<div class="timebox"><span id="mins">0</span><small>Minutes</small></div>
+<div class="timebox"><span id="secs">0</span><small>Seconds</small></div>
+</div>
 </div>
 
-<!-- DETAILS -->
+<!-- Invite -->
+<div class="section">
+<h2>You’re Invited</h2>
+<p>
+With grateful hearts and deep joy, we invite you to witness and celebrate a moment that means the world to us.  
+This day is not just about an event, but about love and the beginning of a shared forever.
+</p>
+</div>
+
+<!-- Details -->
 <div class="section bg-section" style="background-image:url('IMG_2338.jpeg')">
-  <h2>Event Details</h2>
-  <p>
-    Civil Ceremony & Intimate Dinner<br><br>
-    Thursday, 21st May 2026<br>
-    4:00 PM<br><br>
-    Yasmin Al Sham,<br>
-    Victoria Island, Lagos
-  </p>
+<h2>Event Details</h2>
+<p>
+Civil Ceremony & Intimate Dinner<br><br>
+Thursday, 21st May 2026<br>
+4:00 PM – 7:00 PM<br><br>
+Yasmin Al Sham,<br>
+Victoria Island, Lagos
+</p>
 
-  <a href="https://www.google.com/maps/search/?api=1&query=Yasmin+Al+Sham+Victoria+Island+Lagos" target="_blank">
-    <button>Get Directions</button>
-  </a>
+<a href="https://www.google.com/maps/search/?api=1&query=Yasmin+Al+Sham+Victoria+Island+Lagos" target="_blank">
+<button>Get Directions</button>
+</a>
 </div>
 
-<!-- STORY -->
+<!-- Story -->
 <div class="section">
-  <h2>Our Story</h2>
-  <p class="story">
+<h2>Our Story</h2>
 
-We fell in love in an unusual way…<br><br>
+<p class="story">
+We fell in love in a hopeless way…<br><br>
 
 “My own,” as I fondly call her, wasn’t looking for love, and neither was I.<br><br>
 
-But somehow, in the quiet and most unexpected way,  
-we found each other and we stayed.<br><br>
+But somehow, in the quiet and most unexpected way, we found each other and we stayed.<br><br>
 
-There was something about us that felt easy,  
-natural, certain.<br><br>
+There was something about us that felt easy, natural, certain.<br><br>
 
-We laugh together, soft, loud, and unforced,  
-like joy had always known our names.<br><br>
+We laugh together, soft, loud, and unforced, like joy had always known our names.<br><br>
 
-And in the middle of it all,  
-we found ourselves growing,  
-and still growing, together in our love for Christ,  
-a love that has kept us, and is still keeping us in love.<br><br>
+And in the middle of it all, we found ourselves growing, and still growing, together in our love for Christ, a love that has kept us, and is still keeping us in love.<br><br>
 
-What we have is not loud or hurried,  
-but steady, intentional, and full of grace,  
-a quiet reminder of mercy.<br><br>
+What we have is not loud or hurried, but steady, intentional, and full of grace, a quiet reminder of mercy.<br><br>
 
 And then… the story begins.<br><br>
 
-And now, with full hearts and quiet certainty,  
-we choose forever.
-
-  </p>
+And now, with full hearts and quiet certainty, we choose forever.
+</p>
 </div>
 
-<!-- DRESS CODE -->
+<!-- Dress Code -->
 <div class="section">
-  <h2>Dress Code</h2>
-  <p>
-    Comfortable but chic.<br><br>
-    Think soft elegance, effortless style, and refined simplicity.
-  </p>
+<h2>Dress Code</h2>
+<p>
+Comfortable but chic.<br><br>
+Think soft elegance, effortless style, and refined simplicity.
+</p>
 </div>
 
-<!-- GIFTS -->
+<!-- Gifts -->
 <div class="section">
-  <h2>Gifts</h2>
-  <p>
-    Your presence means so much to us and is truly the greatest gift.<br><br>
-    However, if you wish to bless us further, we would be deeply grateful.
-  </p>
+<h2>Gifts</h2>
+<p>
+Your presence means so much to us and is truly the greatest gift.<br><br>
+However, if you wish to bless us further, we would be deeply grateful.
+</p>
 
-  <div class="registry">
-    <strong>Account Name:</strong> Ukeje Chisom<br>
-    <strong>Bank:</strong> Access Bank Plc<br>
-    <strong>Account Number:</strong> 0030895480
-  </div>
+<div class="registry">
+<strong>Account Name:</strong> Ukeje Chisom<br>
+<strong>Bank:</strong> Access Bank Plc<br>
+<strong>Account Number:</strong> 0030895480
+</div>
 </div>
 
 <!-- RSVP -->
 <div class="section">
-  <h2>RSVP</h2>
-  <p>
-    Kindly confirm your attendance on or before  
-    <strong>16th May 2026</strong>.
-  </p>
+<h2>RSVP</h2>
+<p>
+Kindly confirm your attendance on or before  
+<strong>16th May 2026</strong>.
+</p>
 
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
-    <button>Confirm Attendance</button>
-  </a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScUOwG40w13vZpitkOvzhSqKn-qA4xoS0BRd3v1eFwlzU8n6Q/viewform?usp=publish-editor">
+<button>Confirm Attendance</button>
+</a>
 </div>
 
-<!-- FOOTER -->
-<div style="text-align:center; padding:60px 20px 40px; font-family:'Cormorant Garamond'; font-style:italic; color:#7a5c43;">
-  <p style="font-size:18px; margin-bottom:10px;">
-    With love,<br>
-    Emeka & Chisom
-  </p>
+<!-- Footer -->
+<div class="footer">
+<p style="font-size:18px; margin-bottom:10px;">
+With love,<br>
+Emeka & Chisom
+</p>
 
-  <p style="font-size:12px; opacity:0.6;">
-    #OneByMercy2026
-  </p>
+<p style="font-size:12px; opacity:.6;">
+#OneByMercy2026
+</p>
+
+<p class="credit">
+This beautiful website was built by the bride.
+</p>
 </div>
 
 <script>
 function openInvite(){
-  document.getElementById("seal").classList.add("open");
-  setTimeout(()=>{
-    document.getElementById("card").classList.add("open");
-  },500);
-  setTimeout(()=>{
-    document.getElementById("envelope").style.display = "none";
-  },1400);
+document.getElementById("seal").classList.add("open");
+
+setTimeout(()=>{
+document.getElementById("card").classList.add("open");
+},500);
+
+setTimeout(()=>{
+document.getElementById("envelope").style.display="none";
+},1400);
 }
+
+/* Countdown */
+const weddingDate = new Date("May 21, 2026 16:00:00").getTime();
+
+setInterval(function(){
+const now = new Date().getTime();
+const gap = weddingDate - now;
+
+const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+const hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const mins = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+const secs = Math.floor((gap % (1000 * 60)) / 1000);
+
+document.getElementById("days").innerText = days;
+document.getElementById("hours").innerText = hours;
+document.getElementById("mins").innerText = mins;
+document.getElementById("secs").innerText = secs;
+},1000);
 </script>
 
 </body>
