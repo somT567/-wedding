@@ -26,7 +26,6 @@ opacity:.35;
 z-index:-2;
 }
 
-/* Envelope */
 #envelope{
 position:fixed;
 inset:0;
@@ -96,7 +95,6 @@ transition:.8s ease;
 stroke-dashoffset:0;
 }
 
-/* Hero */
 .hero{
 height:100vh;
 background:linear-gradient(rgba(245,241,235,.74),rgba(245,241,235,.74)),
@@ -116,7 +114,6 @@ font-size:3.3rem;
 margin-bottom:10px;
 }
 
-/* Sections */
 .section{
 padding:80px 20px;
 max-width:650px;
@@ -234,7 +231,6 @@ font-size:2.6rem;
 
 <body>
 
-<!-- Envelope -->
 <div id="envelope">
 <div class="card" id="card">
 <div class="flap"></div>
@@ -251,7 +247,6 @@ font-size:2.6rem;
 </div>
 </div>
 
-<!-- Hero -->
 <div class="hero">
 <h1 class="shine">Emeka & Chisom</h1>
 <p>21 MAY 2026</p>
@@ -259,7 +254,6 @@ font-size:2.6rem;
 <p>#OneByMercy2026</p>
 </div>
 
-<!-- Countdown -->
 <div class="section">
 <h2>Countdown</h2>
 <p>Counting down to our forever.</p>
@@ -272,7 +266,6 @@ font-size:2.6rem;
 </div>
 </div>
 
-<!-- Invite -->
 <div class="section">
 <h2>You’re Invited</h2>
 <p>
@@ -281,7 +274,6 @@ This day is not just about an event, but about love and the beginning of a share
 </p>
 </div>
 
-<!-- Details -->
 <div class="section bg-section" style="background-image:url('IMG_2338.jpeg')">
 <h2>Event Details</h2>
 <p>
@@ -297,7 +289,6 @@ Victoria Island, Lagos
 </a>
 </div>
 
-<!-- Story -->
 <div class="section">
 <h2>Our Story</h2>
 
@@ -322,7 +313,6 @@ And now, with full hearts and quiet certainty, we choose forever.
 </p>
 </div>
 
-<!-- Dress Code -->
 <div class="section">
 <h2>Dress Code</h2>
 <p>
@@ -331,12 +321,12 @@ Think soft elegance, effortless style, and refined simplicity.
 </p>
 </div>
 
-<!-- Gifts -->
 <div class="section">
 <h2>Gifts</h2>
 <p>
 Your presence means so much to us and is truly the greatest gift.<br><br>
-However, if you wish to bless us further, we would be deeply grateful.
+However, if you wish to bless us further, we would be deeply grateful.<br><br>
+Also, no physical gifts please. Cash gifts only, using the account displayed below, with <strong>Wedding Gift</strong> as the payment remark.
 </p>
 
 <div class="registry">
@@ -346,7 +336,6 @@ However, if you wish to bless us further, we would be deeply grateful.
 </div>
 </div>
 
-<!-- RSVP -->
 <div class="section">
 <h2>RSVP</h2>
 <p>
@@ -359,7 +348,6 @@ Kindly confirm your attendance on or before
 </a>
 </div>
 
-<!-- Footer -->
 <div class="footer">
 <p style="font-size:18px; margin-bottom:10px;">
 With love,<br>
@@ -378,27 +366,24 @@ This beautiful website was built by the bride.
 <script>
 function openInvite(){
 document.getElementById("seal").classList.add("open");
-
 setTimeout(()=>{
 document.getElementById("card").classList.add("open");
 },500);
-
 setTimeout(()=>{
 document.getElementById("envelope").style.display="none";
 },1400);
 }
 
-/* Countdown */
 const weddingDate = new Date("May 21, 2026 16:00:00").getTime();
 
 setInterval(function(){
 const now = new Date().getTime();
 const gap = weddingDate - now;
 
-const days = Math.floor(gap / (1000 * 60 * 60 * 24));
-const hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const mins = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-const secs = Math.floor((gap % (1000 * 60)) / 1000);
+const days = Math.floor(gap / (1000*60*60*24));
+const hours = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+const mins = Math.floor((gap % (1000*60*60)) / (1000*60));
+const secs = Math.floor((gap % (1000*60)) / 1000);
 
 document.getElementById("days").innerText = days;
 document.getElementById("hours").innerText = hours;
